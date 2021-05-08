@@ -39,7 +39,6 @@ class _HostPageViewState extends State<HostPageView> {
                       decoration:
                           _formInputDecorationFactory.create("Full Name"),
                     ),
-                    new SizedBox(height: 5),
                     FormBuilderTextField(
                         name: 'email',
                         decoration:
@@ -92,7 +91,7 @@ class _HostPageViewState extends State<HostPageView> {
             initialValue: {
               'name': 'Betty Guo (autoprop?)',
               'email': 'bettyg3113@gmail.com (autoprop?)',
-              'phone': 2269299708,
+              //'phone': 2269299708,
               'address': '96 University(autoprop?)',
             }));
   }
