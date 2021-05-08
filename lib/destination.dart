@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import './homepage_view.dart';
+import './searchpage_view.dart';
+import './hostpage_view.dart';
+import './profilepage_view.dart';
 
 class Destination {
-  const Destination(this.title, this.icon);
+  Destination(this.title, this.icon, this.widget);
   final String title;
   final IconData icon;
+  final Widget widget;
 }
 
-const List<Destination> allDestinations = <Destination>[
-  Destination('Home', Icons.home),
-  Destination('Browse', Icons.search),
-  Destination('Host', Icons.add),
-  Destination('Profile', Icons.person)
+List<Destination> allDestinations = <Destination>[
+  Destination('Home', Icons.home, HomePageView()),
+  Destination('Browse', Icons.search, SearchPageView()),
+  Destination('Host', Icons.add, HostPageView()),
+  Destination('Profile', Icons.person, ProfilePageView())
 ];

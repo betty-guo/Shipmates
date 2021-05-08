@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'destination.dart';
-import 'destination_view.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,15 +14,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('TOHacks2021'),
-      ),
       body: SafeArea(
         top: false,
         child: IndexedStack(
           index: _currentIndex,
           children: allDestinations.map<Widget>((Destination destination) {
-            return DestinationView(destination: destination);
+            return destination.widget;
           }).toList(),
         ),
       ),
