@@ -46,7 +46,24 @@ routes.route('/users').post((req,res) => {
         .catch((err) => {
             return res.send(err);
         });
-
 });
+
+// Get USER by email
+routes.route('/users').get((req,res) => {
+    axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/users/${req.body.primary_key}`, 
+    {
+        headers: {
+            "X-Cassandra-Token": process.env.ASTRA_DB_APPLICATION_TOKEN,
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            return res.send(response.data);
+        })
+        .catch((err) => {
+            return res.send(err);
+        });
+});
+
 
 module.exports = routes;
