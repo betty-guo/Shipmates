@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_phone_field/form_builder_phone_field.dart';
 import 'destination.dart';
 
 class HostPageView extends StatefulWidget {
@@ -30,9 +29,9 @@ class _HostPageViewState extends State<HostPageView> {
         body: FormBuilder(
             key: _formKey,
             child: Padding(
-              padding: const EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(25.0),
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     FormBuilderTextField(
                       name: 'name',
@@ -40,33 +39,36 @@ class _HostPageViewState extends State<HostPageView> {
                           _formInputDecorationFactory.create("Full Name"),
                     ),
                     FormBuilderTextField(
-                        name: 'email',
-                        decoration:
-                            _formInputDecorationFactory.create("Email")),
+                      name: 'email',
+                      decoration: _formInputDecorationFactory.create("Email"),
+                    ),
                     FormBuilderTextField(
-                        name: 'phone',
-                        decoration:
-                            _formInputDecorationFactory.create("Phone")),
+                      name: 'phone',
+                      decoration: _formInputDecorationFactory.create("Phone"),
+                    ),
                     FormBuilderTextField(
-                        name: 'address',
-                        decoration:
-                            _formInputDecorationFactory.create("Address")),
+                      name: 'address',
+                      decoration: _formInputDecorationFactory.create("Address"),
+                    ),
                     FormBuilderTextField(
-                        name: 'website',
-                        decoration:
-                            _formInputDecorationFactory.create("Website")),
+                      name: 'website',
+                      decoration: _formInputDecorationFactory.create("Website"),
+                    ),
                     FormBuilderDateTimePicker(
-                        name: 'deadline',
-                        decoration:
-                            _formInputDecorationFactory.create("Deadline")),
+                      name: 'deadline',
+                      decoration:
+                          _formInputDecorationFactory.create("Deadline"),
+                    ),
                     FormBuilderTextField(
-                        name: 'current_shipping_price',
-                        decoration: _formInputDecorationFactory
-                            .create("Current Shipping Price")),
+                      name: 'current_shipping_price',
+                      decoration: _formInputDecorationFactory
+                          .create("Current Shipping Price"),
+                    ),
                     FormBuilderTextField(
-                        name: 'current_cart_price',
-                        decoration: _formInputDecorationFactory
-                            .create("Current Cart Price")),
+                      name: 'current_cart_price',
+                      decoration: _formInputDecorationFactory
+                          .create("Current Cart Price"),
+                    ),
                     FormBuilderTextField(
                         name: 'max_people',
                         decoration: _formInputDecorationFactory
@@ -83,16 +85,16 @@ class _HostPageViewState extends State<HostPageView> {
                               content:
                                   Text('$nameData', textScaleFactor: 1.5)));
                         },
-                        child: Text('Read'))
+                        child: Text('Submit'))
                   ]),
             ),
             onChanged: () => print("Form has been changed"),
             autovalidateMode: AutovalidateMode.onUserInteraction,
             initialValue: {
-              'name': 'Betty Guo (autoprop?)',
-              'email': 'bettyg3113@gmail.com (autoprop?)',
-              //'phone': 2269299708,
-              'address': '96 University(autoprop?)',
+              'name': 'Betty Guo',
+              'email': 'bettyg3113@gmail.com',
+              'phone': '2269299708',
+              'address': '96 University',
             }));
   }
 
