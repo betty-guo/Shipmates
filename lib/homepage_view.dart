@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/sessionCard.dart';
 import 'destination.dart';
 
 class HomePageView extends StatefulWidget {
@@ -17,21 +18,17 @@ class _HomePageViewState extends State<HomePageView> {
   void initState() {
     super.initState();
     _textController = TextEditingController(
-      text: 'sample text',
+      text: 'sample text home',
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(32.0),
-        alignment: Alignment.center,
-        child: TextField(controller: _textController),
-      ),
+        appBar: AppBar(
+          title: Text('Home'),
+        ),
+        body: SessionCard()
     );
   }
 
