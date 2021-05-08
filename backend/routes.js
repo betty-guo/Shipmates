@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const routes = express.Router();
-// const client = require('./connect-database');
 
 require('dotenv').config();
 const { Client } = require("cassandra-driver");
+const { v4: uuidv4 } = require('uuid');
+const axios = require('axios');
 
 const client = new Client({
     cloud: {
@@ -21,11 +22,31 @@ routes.route('/').get((req,res) => {
 	return res.send('TOHacks2021');
 });
 
-routes.route('/users').get(async (req,res) => {
-    await client.connect();
-    // Execute a query
-    const rs = await client.execute("SELECT * FROM system.local");
-    return res.send(`Your cluster returned ${rs.rowLength} row(s)`);
+// POST user to users table
+routes.route('/users').post((req,res) => {
+    axios.post(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/users`, 
+    {
+        id: uuidv4(),
+        name: req.body.name, 
+        phone_numeber: req.body.phone_numeber,
+        email: req.body.email,
+        address: req.body.address,
+        pfp: req.body.pfp,
+        rating: req.body.rating
+    },
+    {
+        headers: {
+            "X-Cassandra-Token": process.env.ASTRA_DB_APPLICATION_TOKEN,
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            return res.send(response.data);
+        })
+        .catch((err) => {
+            return res.send(err);
+        });
+
 });
 
 module.exports = routes;

@@ -18,7 +18,7 @@ curl -s --location \
 --data '{
 	"name": "users",
     "primaryKey": {"partitionKey":["id"]},
-    "columnDefinitions":
+    "columnDefinitions": [
 	    {
             "name": "id",
             "typeDefinition": "uuid"
