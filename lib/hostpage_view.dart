@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import "./destination.dart";
+import 'destination.dart';
 
-class DestinationView extends StatefulWidget {
-  const DestinationView({Key key, this.destination}) : super(key: key);
+class HostPageView extends StatefulWidget {
+  const HostPageView({Key key, this.destination}) : super(key: key);
 
   final Destination destination;
 
   @override
-  _DestinationViewState createState() => _DestinationViewState();
+  _HostPageViewState createState() => _HostPageViewState();
 }
 
-class _DestinationViewState extends State<DestinationView> {
+class _HostPageViewState extends State<HostPageView> {
   TextEditingController _textController;
 
   @override
   void initState() {
     super.initState();
     _textController = TextEditingController(
-      text: 'sample text: ${widget.destination.title}',
+      text: 'sample text',
     );
   }
 
@@ -25,7 +25,7 @@ class _DestinationViewState extends State<DestinationView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.destination.title} Text'),
+        title: Text('Host a new session'),
       ),
       body: Container(
         padding: const EdgeInsets.all(32.0),
