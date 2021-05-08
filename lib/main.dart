@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './home_widget.dart';
+import './loginpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Home(),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: TextStyle(color: Colors.grey),
+        ),
+      ),
+      home: Login(),
     );
   }
 }
