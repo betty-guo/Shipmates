@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tohacks2021/homepage_view.dart';
 import 'home_widget.dart';
 
 class Login extends StatefulWidget {
@@ -14,7 +13,7 @@ class _LoginState extends State<Login> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("PackagePal"),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.lightGreen,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -59,14 +58,15 @@ class _LoginState extends State<Login> {
               },
               child: Text(
                 'Forgot Password',
-                style: TextStyle(color: Colors.green, fontSize: 15),
+                style: TextStyle(color: Colors.lightGreen, fontSize: 15),
               ),
             ),
             Container(
               height: 50,
               width: 250,
               decoration: BoxDecoration(
-                  color: Colors.green, borderRadius: BorderRadius.circular(20)),
+                  color: Colors.lightGreen,
+                  borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
