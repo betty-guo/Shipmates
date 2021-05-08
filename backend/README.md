@@ -5,6 +5,7 @@
 ```
 CLIENT_ID=
 CLIENT_SECRET=
+PORT=5000 (for localhost)
 ```
 Ask for values in the `.env`.
-3. `node connect-database.js` to run the database.
+3. `node server.js` to run the express server.
