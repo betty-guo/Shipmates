@@ -3,6 +3,7 @@ import './homepage_view.dart';
 import './searchpage_view.dart';
 import './hostpage_view.dart';
 import './profilepage_view.dart';
+import './components/session-card.dart';
 
 class Destination {
   Destination(this.title, this.icon, this.widget);
