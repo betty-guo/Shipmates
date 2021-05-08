@@ -73,19 +73,29 @@ class _HostPageViewState extends State<HostPageView> {
                         name: 'max_people',
                         decoration: _formInputDecorationFactory
                             .create("Max People (Optional)")),
-                    ElevatedButton(
-                        onPressed: () {
-                          final nameData =
-                              _formKey.currentState.fields['name'].value;
+                    Container(
+                      height: 50,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.lightGreen,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: TextButton(
+                          onPressed: () {
+                            final nameData =
+                                _formKey.currentState.fields['name'].value;
 
-                          FocusScope.of(context).unfocus();
+                            FocusScope.of(context).unfocus();
 
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              duration: Duration(seconds: 1),
-                              content:
-                                  Text('$nameData', textScaleFactor: 1.5)));
-                        },
-                        child: Text('Submit'))
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                duration: Duration(seconds: 1),
+                                content:
+                                    Text('$nameData', textScaleFactor: 1.5)));
+                          },
+                          child: Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white, fontSize: 25),
+                          )),
+                    ),
                   ]),
             ),
             onChanged: () => print("Form has been changed"),
@@ -105,16 +115,8 @@ class _HostPageViewState extends State<HostPageView> {
 }
 
 class FormInputDecorationFactory {
-  InputDecoration create(String hint) {
+  InputDecoration create(String text) {
     return InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(
-            const Radius.circular(10.0),
-          ),
-        ),
-        filled: true,
-        hintStyle: TextStyle(color: Colors.grey[800]),
-        hintText: hint,
-        fillColor: Colors.white70);
+        border: OutlineInputBorder(), labelText: text, hintText: text);
   }
 }

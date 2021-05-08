@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.lightGreen,
         fixedColor: Colors.black,
         onTap: (int index) {
           setState(() {
