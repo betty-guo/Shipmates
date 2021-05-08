@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tohacks2021/components/session-card.dart';
 import 'destination.dart';
 
 class HomePageView extends StatefulWidget {
@@ -18,7 +17,7 @@ class _HomePageViewState extends State<HomePageView> {
   void initState() {
     super.initState();
     _textController = TextEditingController(
-      text: 'sample text home',
+      text: 'sample text',
     );
   }
 
@@ -28,7 +27,11 @@ class _HomePageViewState extends State<HomePageView> {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: SessionCard()
+      body: Container(
+        padding: const EdgeInsets.all(32.0),
+        alignment: Alignment.center,
+        child: TextField(controller: _textController),
+      ),
     );
   }
 
