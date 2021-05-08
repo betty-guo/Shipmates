@@ -48,9 +48,9 @@ routes.route('/users').post((req,res) => {
         });
 });
 
-// GET user by email
+// GET user by id
 routes.route('/users').get((req,res) => {
-    axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/users/${req.body.primary_key}`, 
+    axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/users/${req.query.id}`, 
     {
         headers: {
             "X-Cassandra-Token": process.env.ASTRA_DB_APPLICATION_TOKEN,
@@ -64,6 +64,24 @@ routes.route('/users').get((req,res) => {
             return res.send(err);
         });
 });
+
+// GET user by email
+// routes.route('/users').get((req,res) => {
+//     axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/users/${req.body.primary_key}`, 
+//     {
+//         headers: {
+//             "X-Cassandra-Token": process.env.ASTRA_DB_APPLICATION_TOKEN,
+//             "Content-Type": "application/json"
+//         }
+//     })
+//         .then(response => {
+//             return res.send(response.data);
+//         })
+//         .catch((err) => {
+//             return res.send(err);
+//         });
+// });
+
 
 // POST active session to active sessions table
 routes.route('/active-sessions').post((req,res) => {
@@ -98,7 +116,7 @@ routes.route('/active-sessions').post((req,res) => {
 
 // GET active sessions by id
 routes.route('/active-sessions').get((req,res) => {
-    axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/active_sessions/${req.body.primary_key}`, 
+    axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/active_sessions/${req.query.id}`, 
     {
         headers: {
             "X-Cassandra-Token": process.env.ASTRA_DB_APPLICATION_TOKEN,
