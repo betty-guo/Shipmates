@@ -23,16 +23,30 @@ class _ProfilePageViewState extends State<ProfilePageView> {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> entries = <String>['Name', 'Email', 'Address', 'Rating'];
+    final Map<String, String> values = {
+      'Name:': "Shi Han",
+      'Email:': "sq@gmail.com",
+      "Address": "96 Uni Ave",
+      "Rating": "5/5"
+    };
+    Widget _buildList() {
+      return ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: entries.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text(entries[index]),
+              subtitle: Text('${entries[index]}'),
+            );
+          });
+    }
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(32.0),
-        alignment: Alignment.center,
-        child: TextField(controller: _textController),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Profile'),
+        ),
+        body: _buildList());
   }
 
   @override
