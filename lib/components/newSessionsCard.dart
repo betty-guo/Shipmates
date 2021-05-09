@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tohacks2021/db/add_user_to_session.dart';
+import 'package:tohacks2021/db/notifications.dart';
 import 'package:tohacks2021/user_ids.dart';
 import '../models/active_sessions_model.dart';
 import '../destination.dart';
@@ -102,6 +103,7 @@ class _SessionCardState extends State<SessionCard> {
                                                       addUserToSession(
                                                           '0655855e-8be7-4478-bac2-80932b4deec2',
                                                           activeSession);
+                                                      postNotification("Rahma");
                                                       Navigator.pop(context);
                                                     }
                                                     // ADD API CALL HERE
