@@ -78,7 +78,7 @@ class _HostingSessionCardState extends State<HostingSessionCard> {
                                 child: TextButton(
                                     onPressed: () {
                                       postNotification('Rahma');
-                                      status = 'Ordered';
+                                      setState(() => this.status = 'Ordered');
                                     },
                                     child: const Text('Update',
                                         style: TextStyle(

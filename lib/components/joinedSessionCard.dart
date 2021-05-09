@@ -37,10 +37,11 @@ class _JoinedSessionCardState extends State<JoinedSessionCard> {
                   content: SingleChildScrollView(
                     child: ListBody(
                       children: <Widget>[
-                        Text('Host:' + activeSession.host),
-                        Text('Current Shipping Price:' + activeSession.current_shipping_price),
-                        Text('Store:' + activeSession.url),
-                        Text('Status:' + activeSession.state),
+                        Text('Host: Betty'),
+                        Text('Current Shipping Price: 100' +
+                            activeSession.current_shipping_price),
+                        Text('Store: Aritizia.com'),
+                        Text('Status: Shipped'),
                       ],
                     ),
                   ),
@@ -60,13 +61,13 @@ class _JoinedSessionCardState extends State<JoinedSessionCard> {
                 const ListTile(
                   leading: Icon(Icons.person),
                   title: Text('Host'),
-                  subtitle: Text('Eric Chen'),
+                  subtitle: Text('Betty'),
                 ),
                 Stack(children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.attach_money),
                     title: Text('Status'),
-                    subtitle: Text('Procesing'),
+                    subtitle: Text('Shipped'),
                   ),
                 ]),
               ],

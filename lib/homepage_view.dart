@@ -32,6 +32,8 @@ class _HomePageViewState extends State<HomePageView> {
           title: Text('Home'),
         ),
         body: ListView(
+          physics: ScrollPhysics(),
+          shrinkWrap: true,
           children: <Widget>[
             Container(
               margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
@@ -49,53 +51,28 @@ class _HomePageViewState extends State<HomePageView> {
                 if (snapshot.hasData) {
                   List<ActiveSessions> newHostSessionList = snapshot.data;
                   children = <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
-                      child: Text('Looking for something in particular?',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 20,
-                          )),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      alignment: Alignment.center,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Search for something!',
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
-                      child: Text('Ships near you',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 20,
-                          )),
-                    ),
-                    Container(
-                      child: ListView.builder(
-                        physics: ScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: newHostSessionList.length,
-                        itemBuilder: (context, index) {
-                          //newSessionlist[index]
-                          return Container(
-                            width: 500,
-                            height: 162,
-                            child: HostingSessionCard(
-                                activeSession: newHostSessionList[index]),
-                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                          );
-                        },
-                      ),
+                    ListView.builder(
+                      physics: ScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: newHostSessionList.length,
+                      itemBuilder: (context, index) {
+                        //newSessionlist[index]
+                        return Container(
+                          width: 500,
+                          height: 162,
+                          child: HostingSessionCard(
+                              activeSession: newHostSessionList[index]),
+                          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        );
+                      },
                     ),
                   ];
                 } else {
                   children = <Widget>[Container()];
                 }
                 return ListView(
+                  physics: ScrollPhysics(),
+                  shrinkWrap: true,
                   children: children,
                 );
               },
@@ -108,7 +85,13 @@ class _HomePageViewState extends State<HomePageView> {
                     fontSize: 20,
                   )),
             ),
-            FutureBuilder<List<ActiveSessions>>(
+            Container(
+              width: 500,
+              height: 162,
+              child: JoinedSessionCard(),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            ),
+            /*FutureBuilder<List<ActiveSessions>>(
               future: joinedSessionList,
               builder: (BuildContext context,
                   AsyncSnapshot<List<ActiveSessions>> snapshot) {
@@ -116,57 +99,32 @@ class _HomePageViewState extends State<HomePageView> {
                 if (snapshot.hasData) {
                   List<ActiveSessions> newJoinedSessionList = snapshot.data;
                   children = <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
-                      child: Text('Looking for something in particular?',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 20,
-                          )),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      alignment: Alignment.center,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Search for something!',
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
-                      child: Text('Ships near you',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 20,
-                          )),
-                    ),
-                    Container(
-                      child: ListView.builder(
-                        physics: ScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: newJoinedSessionList.length,
-                        itemBuilder: (context, index) {
-                          //newSessionlist[index]
-                          return Container(
-                            width: 500,
-                            height: 162,
-                            child: JoinedSessionCard(
-                                activeSession: newJoinedSessionList[index]),
-                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                          );
-                        },
-                      ),
+                    ListView.builder(
+                      physics: ScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: newJoinedSessionList.length,
+                      itemBuilder: (context, index) {
+                        //newSessionlist[index]
+                        return Container(
+                          width: 500,
+                          height: 162,
+                          child: JoinedSessionCard(
+                              activeSession: newJoinedSessionList[index]),
+                          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        );
+                      },
                     ),
                   ];
                 } else {
                   children = <Widget>[Container()];
                 }
                 return ListView(
+                  physics: ScrollPhysics(),
+                  shrinkWrap: true,
                   children: children,
                 );
               },
-            ),
+            ),*/
           ],
         ));
   }
