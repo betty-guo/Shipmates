@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/db/add_user_to_session.dart';
+import 'package:tohacks2021/db/notifications.dart';
 import 'package:tohacks2021/user_ids.dart';
 import '../models/active_sessions_model.dart';
 import '../destination.dart';
@@ -39,7 +41,7 @@ class _SessionCardState extends State<SessionCard> {
                 ListTile(
                   leading: Icon(Icons.person),
                   title: Text('Shipmates Leader'),
-                  subtitle: Text(idToEmail[activeSession.host]),
+                  subtitle: Text(idToName[activeSession.host]),
                   trailing: Icon(Icons.arrow_forward_ios, size: 50),
                 ),
                 Stack(children: <Widget>[
@@ -88,19 +90,24 @@ class _SessionCardState extends State<SessionCard> {
                                                   ),
                                                 ),
                                                 ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    primary: Colors
-                                                        .lightGreen, // background
-                                                    onPrimary: Colors
-                                                        .white, // foreground
-                                                  ),
-                                                  child: const Text(
-                                                      "Add items and join"),
-                                                  onPressed: () =>
-                                                      Navigator.pop(context),
-                                                  // ADD API CALL HERE
-                                                ),
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      primary: Colors
+                                                          .lightGreen, // background
+                                                      onPrimary: Colors
+                                                          .white, // foreground
+                                                    ),
+                                                    child: const Text(
+                                                        "Add items and join"),
+                                                    onPressed: () {
+                                                      addUserToSession(
+                                                          '0655855e-8be7-4478-bac2-80932b4deec2',
+                                                          activeSession);
+                                                      postNotification("Rahma");
+                                                      Navigator.pop(context);
+                                                    }
+                                                    // ADD API CALL HERE
+                                                    ),
                                               ])));
                                     });
                               }),
