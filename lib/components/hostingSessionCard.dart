@@ -15,6 +15,27 @@ class _HostingSessionCardState extends State<HostingSessionCard> {
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("Session Details"),
+                  content: SingleChildScrollView(
+                    child: ListBody(
+                      children: <Widget>[
+                        Text('Current Shipping Price:'),
+                        Text('Store:'),
+                        Text('Items:'),
+                        Text('Status:'),
+                      ],
+                    ),
+                  ),
+                  // actions: [
+                  //   okButton,
+                  // ],
+                );
+              },
+            );
             print('Card tapped.');
           },
           child: Card(
