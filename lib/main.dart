@@ -11,19 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Color(0xFFADE28A),
-        primaryColorLight: Color(0xFFF0ED86),
-        primaryColorDark: Color(0xFF256670)
-
-
-      ),
+          primaryColor: Color(0xFFADE28A),
+          primaryColorLight: Color(0xFFF0ED86),
+          primaryColorDark: Color(0xFF256670)),
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Colors.lightGreen,
-        inputDecorationTheme: InputDecorationTheme(
-          labelStyle: TextStyle(color: Colors.grey),
-        ),
-      ),
       home: Login(),
     );
   }

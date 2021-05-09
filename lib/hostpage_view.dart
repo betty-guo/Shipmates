@@ -114,14 +114,6 @@ class _HostPageViewState extends State<HostPageView> {
                                 onPressed: () {
                                   final nameData = _formKey
                                       .currentState.fields['name'].value;
-                                  /*Future<User> user = getUserById(
-                                'f4533afc-527a-4904-865b-ca0dc3d0883a');
-
-                            user.then((data) {
-                              print(data);
-                            }, onError: (e) {
-                              print(e);
-                            });*/
 
                                   FocusScope.of(context).unfocus();
 
@@ -148,7 +140,16 @@ class _HostPageViewState extends State<HostPageView> {
                     'address': snapshot.data.address,
                   }),
             ];
-          } else if (snapshot.hasError) {}
+          } else if (snapshot.hasError) {
+            children = <Widget>[Container()];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: children,
+            ),
+          );
         },
       ),
     );
@@ -156,7 +157,6 @@ class _HostPageViewState extends State<HostPageView> {
 
   @override
   void dispose() {
-// <<<<<<< hostpage
     super.dispose();
   }
 }
@@ -167,9 +167,3 @@ class FormInputDecorationFactory {
         border: OutlineInputBorder(), labelText: text, hintText: text);
   }
 }
-// =======
-//     _textController.dispose();
-//     super.dispose();
-//   }
-// }
-// >>>>>>> main
