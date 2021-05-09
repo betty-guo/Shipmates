@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tohacks2021/db/get_user.dart';
 import 'package:tohacks2021/models/user_model.dart';
 import 'destination.dart';
 
@@ -11,32 +10,32 @@ class ProfilePageView extends StatefulWidget {
   final Future<User> user;
 
   @override
-  _ProfilePageViewState createState() => _ProfilePageViewState();
+  _ProfilePageViewState createState() => _ProfilePageViewState(user: user);
 }
 
 class _ProfilePageViewState extends State<ProfilePageView> {
-  TextEditingController _textController;
-
-  @override
-  void initState() {
-    super.initState();
-    _textController = TextEditingController(
-      text: 'sample text',
-    );
-  }
-
+  _ProfilePageViewState({this.user});
+  Future<User> user;
   @override
   Widget build(BuildContext context) {
     final List<String> entries = <String>['Name', 'Email', 'Address', 'Rating'];
 
-    Widget _buildList() {
+    Widget _buildList(User user) {
+      final List<String> userFields = <String>[
+        user.name,
+        user.email,
+        user.address,
+        user.rating.toString()
+      ];
       return ListView.builder(
           padding: const EdgeInsets.all(8),
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
           itemCount: entries.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               title: Text(entries[index]),
-              subtitle: Text('${entries[index]}'),
+              subtitle: Text(userFields[index]),
             );
           });
     }
@@ -45,12 +44,22 @@ class _ProfilePageViewState extends State<ProfilePageView> {
         appBar: AppBar(
           title: Text('Profile'),
         ),
-        body: _buildList());
-  }
-
-  @override
-  void dispose() {
-    _textController.dispose();
-    super.dispose();
+        body: FutureBuilder<User>(
+            future: user, // a previously-obtained Future<String> or null
+            builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
+              List<Widget> children;
+              if (snapshot.hasData) {
+                children = <Widget>[_buildList(snapshot.data)];
+              } else {
+                children = <Widget>[Container()];
+              }
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: children,
+                ),
+              );
+            }));
   }
 }

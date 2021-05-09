@@ -29,17 +29,6 @@ class _HostPageViewState extends State<HostPageView> {
   Future<User> user;
 
   @override
-  void initState() {
-    super.initState();
-// <<<<<<< hostpage
-// =======
-//     _textController = TextEditingController(
-//       text: 'sample text',
-//     );
-// >>>>>>> main
-  }
-
-  @override
   Widget build(BuildContext context) {
     print(context);
     print("Inside the hostpage builder");
@@ -140,7 +129,7 @@ class _HostPageViewState extends State<HostPageView> {
                     'address': snapshot.data.address,
                   }),
             ];
-          } else if (snapshot.hasError) {
+          } else {
             children = <Widget>[Container()];
           }
           return Center(
@@ -153,11 +142,6 @@ class _HostPageViewState extends State<HostPageView> {
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }
 
