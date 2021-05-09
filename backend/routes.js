@@ -7,6 +7,7 @@ const { Client } = require("cassandra-driver");
 const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
 
+
 const client = new Client({
     cloud: {
       secureConnectBundle: "./secure-connect-toHacks2021.zip",
@@ -146,6 +147,33 @@ routes.route('/all-active-sessions')
         .catch((err) => {
             return res.send(err);
         });
+});
+
+// POST send SMS notification to given phone number through Courier
+routes.route('/send-notification')
+.post((req, res) => {
+    axios.post(`https://api.courier.com/send`,
+    {
+        "event": process.env.COURIER_EVENT_ID,
+        "data": {
+            "name": req.body.name,
+        },
+        "profile": {
+            "phone_number": req.body.phone_number
+        },
+        "recipient": req.body.phone_number
+    },
+    {
+        headers: {
+            "Authorization": process.env.COURIER_AUTHORIZE_TOKEN
+        }
+    })
+    .then(response => {
+        return res.send(response.data);
+    })
+    .catch((err) => {
+        return res.send(err);
+    });
 });
 
 module.exports = routes;
