@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/sessionCard.dart';
 import 'destination.dart';
 
 class SearchPageView extends StatefulWidget {
@@ -27,11 +28,52 @@ class _SearchPageViewState extends State<SearchPageView> {
       appBar: AppBar(
         title: Text('Search sessions'),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(32.0),
-        alignment: Alignment.center,
-        child: TextField(controller: _textController),
-      ),
+      body: ListView (
+        children: <Widget> [
+          Container (
+            margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
+            child: Text(
+                'Looking for something in particular?',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: 20,
+                )),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+            alignment: Alignment.center,
+            child: TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                  labelText: 'Search for something!',
+              ),
+
+            ),
+          ),
+          Container (
+            margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
+            child: Text(
+                'Ships near you',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: 20,
+                )),
+          ),
+          Container(
+            width: 500,
+            height: 234,
+            child: SessionCard(),
+            margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+          ),
+          Container(
+            width: 500,
+            height: 234,
+            child: SessionCard(),
+            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+          ),
+        ]
+      )
     );
   }
 

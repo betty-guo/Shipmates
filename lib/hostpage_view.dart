@@ -31,6 +31,12 @@ class _HostPageViewState extends State<HostPageView> {
   @override
   void initState() {
     super.initState();
+// <<<<<<< hostpage
+// =======
+//     _textController = TextEditingController(
+//       text: 'sample text',
+//     );
+// >>>>>>> main
   }
 
   @override
@@ -150,6 +156,7 @@ class _HostPageViewState extends State<HostPageView> {
 
   @override
   void dispose() {
+// <<<<<<< hostpage
     super.dispose();
   }
 }
@@ -160,3 +167,9 @@ class FormInputDecorationFactory {
         border: OutlineInputBorder(), labelText: text, hintText: text);
   }
 }
+// =======
+//     _textController.dispose();
+//     super.dispose();
+//   }
+// }
+// >>>>>>> main
