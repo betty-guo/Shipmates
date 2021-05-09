@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ActiveSessions {
   final String id;
   final String url;
-  final int deadline;
+  final String deadline;
   final String current_shipping_price;
   final String current_cart_price;
   final int num_people;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/db/get_active_sessions.dart';
 import 'package:tohacks2021/db/get_user.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:tohacks2021/models/user_model.dart';
@@ -79,6 +80,7 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(20)),
                       child: TextButton(
                         onPressed: () {
+                          getAllSessions();
                           Future<User> user;
                           if (_formKey.currentState.fields['email'].value ==
                               "shihan@gmail.com") {

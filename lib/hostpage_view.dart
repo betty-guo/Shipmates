@@ -11,14 +11,7 @@ class HostPageView extends StatefulWidget {
   final Future<User> user;
 
   @override
-  _HostPageViewState createState() {
-    user.then((data) {
-      print("Inside state hostpage" + data.name);
-    }, onError: (e) {
-      print(e);
-    });
-    return _HostPageViewState(user: user);
-  }
+  _HostPageViewState createState() => _HostPageViewState(user: user);
 }
 
 class _HostPageViewState extends State<HostPageView> {
@@ -132,7 +125,6 @@ class _HostPageViewState extends State<HostPageView> {
                           ),
                         ]),
                   ),
-                  onChanged: () => print("Form has been changed"),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   initialValue: {
                     'name': snapshot.data.name,
