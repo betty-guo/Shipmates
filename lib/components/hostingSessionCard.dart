@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/db/notifications.dart';
 import 'package:tohacks2021/models/active_sessions_model.dart';
 import '../destination.dart';
 
@@ -12,6 +13,7 @@ class HostingSessionCard extends StatefulWidget {
 }
 
 class _HostingSessionCardState extends State<HostingSessionCard> {
+  String status = 'Processing';
   final ActiveSessions activeSession;
   _HostingSessionCardState({this.activeSession});
   @override
@@ -59,8 +61,31 @@ class _HostingSessionCardState extends State<HostingSessionCard> {
                   ListTile(
                     leading: Icon(Icons.attach_money),
                     title: Text('Status'),
-                    subtitle: Text('Procesing'),
+                    subtitle: Text(status),
                   ),
+                  Positioned(
+                      top: 10,
+                      left: 300,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Container(
+                                margin: (EdgeInsets.fromLTRB(0, 0, 10, 10)),
+                                decoration: BoxDecoration(
+                                  color: Colors.lightGreen,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: TextButton(
+                                    onPressed: () {
+                                      postNotification('Rahma');
+                                      status = 'Ordered';
+                                    },
+                                    child: const Text('Update',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ))))
+                          ]))
                 ]),
               ],
             ),
