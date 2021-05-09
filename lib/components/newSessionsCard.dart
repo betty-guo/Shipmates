@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/user_ids.dart';
 import '../models/active_sessions_model.dart';
 import '../destination.dart';
 
 class SessionCard extends StatefulWidget {
-
   final ActiveSessions activeSession;
-  SessionCard({ this.activeSession });
+  SessionCard({this.activeSession});
 
   @override
-  _SessionCardState createState() => _SessionCardState(
-    activeSession: activeSession
-  );
+  _SessionCardState createState() =>
+      _SessionCardState(activeSession: activeSession);
 }
 
 class _SessionCardState extends State<SessionCard> {
-
   final ActiveSessions activeSession;
-  _SessionCardState({ this.activeSession });
+  _SessionCardState({this.activeSession});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +39,7 @@ class _SessionCardState extends State<SessionCard> {
                 ListTile(
                   leading: Icon(Icons.person),
                   title: Text('Shipmates Leader'),
-                  subtitle: Text(activeSession.host),
+                  subtitle: Text(idToEmail[activeSession.host]),
                   trailing: Icon(Icons.arrow_forward_ios, size: 50),
                 ),
                 Stack(children: <Widget>[
