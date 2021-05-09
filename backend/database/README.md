@@ -77,10 +77,6 @@ curl -s --location \
 	      "typeDefinition": "text"
 	    },
         {
-	      "name": "email",
-	      "typeDefinition": "text"
-	    },
-        {
 	      "name": "current_shipping_price",
 	      "typeDefinition": "text"
 	    },
