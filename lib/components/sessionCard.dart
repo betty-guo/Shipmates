@@ -68,7 +68,6 @@ class _SessionCardState extends State<SessionCard> {
                                     color: Colors.white,
                                   )
                               ),
-                              onPressed: () {/* ... */},
                             ),
                           ),
                         ],
