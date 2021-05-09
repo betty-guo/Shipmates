@@ -80,7 +80,8 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(20)),
                       child: TextButton(
                         onPressed: () {
-                          getAllSessions();
+                          getSessionByHost(
+                              'ae76c66a-dd61-4246-a4cb-a008cfa412cb');
                           Future<User> user;
                           if (_formKey.currentState.fields['email'].value ==
                               "shihan@gmail.com") {
