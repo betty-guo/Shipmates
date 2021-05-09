@@ -31,7 +31,7 @@ class _HomePageViewState extends State<HomePageView> {
         body: ListView(
           children: <Widget> [
             Container (
-              margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
+              margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
               child: Text(
                   'Active Sessions',
               textAlign: TextAlign.start,
@@ -41,48 +41,48 @@ class _HomePageViewState extends State<HomePageView> {
             ),
             Container(
               width: 500,
-              height: 210,
+              height: 234,
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
               child: SessionCard()
             ),
             Container(
                 width: 500,
-                height: 210,
+                height: 234,
                 child: SessionCard(),
                 padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             ),
             Container(
               width: 500,
-              height: 210,
+              height: 234,
               child: SessionCard(),
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             ),
             Container(
               width: 500,
-              height: 210,
+              height: 234,
               child: SessionCard(),
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             ),
             Container(
               width: 500,
-              height: 210,
+              height: 234,
               child: SessionCard(),
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             ),
             Container(
               width: 500,
-              height: 210,
+              height: 234,
               child: SessionCard(),
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             ),
             Container (
-              margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
+              margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
               child: Text(
                   'Sessions Near You',
                   textAlign: TextAlign.start,
@@ -92,17 +92,17 @@ class _HomePageViewState extends State<HomePageView> {
             ),
             Container(
               width: 500,
-              height: 210,
+              height: 234,
               child: SessionCard(),
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             ),
             Container(
               width: 500,
-              height: 210,
+              height: 234,
               child: SessionCard(),
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             ),
           ],
         )

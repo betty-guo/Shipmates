@@ -49,7 +49,7 @@ class _SessionCardState extends State<SessionCard> {
                       ),
                       Positioned(
                         top: 10,
-                        left: 325,
+                        left: 300,
                         child:
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
