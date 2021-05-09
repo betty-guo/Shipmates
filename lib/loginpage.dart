@@ -17,7 +17,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("PackagePal"),
+        title: Text("Shipmates"),
         backgroundColor: Colors.lightGreen,
       ),
       body: SingleChildScrollView(
@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
                 child: Container(
                     width: 200,
                     height: 150,
-                    child: Image.asset('lib/assets/images/flutter.png')),
+                    child: Image.asset('assets/images/logo.jpeg')),
               ),
             ),
             FormBuilder(
