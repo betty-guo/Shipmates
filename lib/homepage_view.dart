@@ -28,7 +28,84 @@ class _HomePageViewState extends State<HomePageView> {
         appBar: AppBar(
           title: Text('Home'),
         ),
-        body: SessionCard()
+        body: ListView(
+          children: <Widget> [
+            Container (
+              margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
+              child: Text(
+                  'Active Sessions',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                 fontSize: 20,
+              )),
+            ),
+            Container(
+              width: 500,
+              height: 210,
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              child: SessionCard()
+            ),
+            Container(
+                width: 500,
+                height: 210,
+                child: SessionCard(),
+                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            ),
+            Container(
+              width: 500,
+              height: 210,
+              child: SessionCard(),
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            ),
+            Container(
+              width: 500,
+              height: 210,
+              child: SessionCard(),
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            ),
+            Container(
+              width: 500,
+              height: 210,
+              child: SessionCard(),
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            ),
+            Container(
+              width: 500,
+              height: 210,
+              child: SessionCard(),
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            ),
+            Container (
+              margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
+              child: Text(
+                  'Sessions Near You',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 20,
+                  )),
+            ),
+            Container(
+              width: 500,
+              height: 210,
+              child: SessionCard(),
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            ),
+            Container(
+              width: 500,
+              height: 210,
+              child: SessionCard(),
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            ),
+          ],
+        )
     );
   }
 
