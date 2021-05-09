@@ -49,7 +49,17 @@ class _ProfilePageViewState extends State<ProfilePageView> {
             builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
               List<Widget> children;
               if (snapshot.hasData) {
-                children = <Widget>[_buildList(snapshot.data)];
+                children = <Widget>[
+                  new Container(
+                      width: 190.0,
+                      height: 190.0,
+                      decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: new NetworkImage(snapshot.data.pfp)))),
+                  _buildList(snapshot.data)
+                ];
               } else {
                 children = <Widget>[Container()];
               }
