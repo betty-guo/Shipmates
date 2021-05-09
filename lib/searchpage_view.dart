@@ -72,7 +72,7 @@ class _SearchPageViewState extends State<SearchPageView> {
                       width: 500,
                       height: 234,
                       child: SessionCard(activeSession: newSessionList[index]),
-                      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     );
                   },
                 ),
