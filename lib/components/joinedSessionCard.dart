@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/user_ids.dart';
+import '../models/active_sessions_model.dart';
 import '../destination.dart';
 
 class JoinedSessionCard extends StatefulWidget {
+  final ActiveSessions activeSession;
+  JoinedSessionCard({this.activeSession});
+
   @override
-  _JoinedSessionCardState createState() => _JoinedSessionCardState();
+  _JoinedSessionCardState createState() =>
+      _JoinedSessionCardState(activeSession: activeSession);
 }
 
 class _JoinedSessionCardState extends State<JoinedSessionCard> {
+  final ActiveSessions activeSession;
+  _JoinedSessionCardState({this.activeSession});
   final List<String> details = <String>[
     "Host",
     "Current Shipping Price",
@@ -29,10 +37,10 @@ class _JoinedSessionCardState extends State<JoinedSessionCard> {
                   content: SingleChildScrollView(
                     child: ListBody(
                       children: <Widget>[
-                        Text('Host:'),
-                        Text('Current Shipping Price:'),
-                        Text('Store:'),
-                        Text('Status:'),
+                        Text('Host:' + activeSession.host),
+                        Text('Current Shipping Price:' + activeSession.current_shipping_price),
+                        Text('Store:' + activeSession.url),
+                        Text('Status:' + activeSession.state),
                       ],
                     ),
                   ),
