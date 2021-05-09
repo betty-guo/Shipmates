@@ -7,6 +7,12 @@ class JoinedSessionCard extends StatefulWidget {
 }
 
 class _JoinedSessionCardState extends State<JoinedSessionCard> {
+  final List<String> details = <String>[
+    "Host",
+    "Current Shipping Price",
+    "Store",
+    "Status"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +21,27 @@ class _JoinedSessionCardState extends State<JoinedSessionCard> {
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("Session Details"),
+                  content: SingleChildScrollView(
+                    child: ListBody(
+                      children: <Widget>[
+                        Text('Host:'),
+                        Text('Current Shipping Price:'),
+                        Text('Store:'),
+                        Text('Status:'),
+                      ],
+                    ),
+                  ),
+                  // actions: [
+                  //   okButton,
+                  // ],
+                );
+              },
+            );
             print('Card tapped.');
           },
           child: Card(

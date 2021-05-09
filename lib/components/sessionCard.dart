@@ -52,13 +52,49 @@ class _SessionCardState extends State<SessionCard> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: TextButton(
-                            onPressed: () {},
-                            child: const Text('Shipped',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                )),
-                          ),
+                              child: const Text('Join',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  )),
+                              onPressed: () {
+                                showModalBottomSheet<void>(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                          height: 400,
+                                          child: Center(
+                                              child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: <Widget>[
+                                                TextField(
+                                                  decoration: InputDecoration(
+                                                    border:
+                                                        OutlineInputBorder(),
+                                                    labelText:
+                                                        'Add urls to your items',
+                                                  ),
+                                                ),
+                                                ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    primary: Colors
+                                                        .lightGreen, // background
+                                                    onPrimary: Colors
+                                                        .white, // foreground
+                                                  ),
+                                                  child: const Text(
+                                                      "Add items and join"),
+                                                  onPressed: () =>
+                                                      Navigator.pop(context),
+                                                  // ADD API CALL HERE
+                                                ),
+                                              ])));
+                                    });
+                              }),
                         ),
                       ],
                     ),
