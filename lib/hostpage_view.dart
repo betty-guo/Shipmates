@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 import 'destination.dart';
 
 class HostPageView extends StatefulWidget {
@@ -16,9 +18,25 @@ class _HostPageViewState extends State<HostPageView> {
   final _formKey = GlobalKey<FormBuilderState>();
   final _formInputDecorationFactory = FormInputDecorationFactory();
 
+  void getUserById(id) async {
+    final response =
+        await http.get(Uri.http('localhost:5000', 'users', {'id': id}));
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      print(response.body);
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load user');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    getUserById('f4533afc-527a-4904-865b-ca0dc3d0883a');
   }
 
   @override
