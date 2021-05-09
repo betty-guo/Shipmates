@@ -43,7 +43,6 @@ class _SearchPageViewState extends State<SearchPageView> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
             alignment: Alignment.center,
             child: TextField(
-              controller: _textController,
               decoration: InputDecoration(
                   labelText: 'Search for something!',
               ),
