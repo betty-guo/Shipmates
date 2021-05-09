@@ -74,7 +74,6 @@ class _SearchPageViewState extends State<SearchPageView> {
           ),
         ]
       )
-
     );
   }
 

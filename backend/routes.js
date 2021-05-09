@@ -48,6 +48,7 @@ routes.route('/users')
             return res.send(err);
         });
 })
+
 // GET user by id
 .get((req,res) => {
     axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/users/${req.query.id}`, 
@@ -96,6 +97,7 @@ routes.route('/active-sessions')
             return res.send(err);
         });
 })
+
 // GET active session by id
 .get((req,res) => {
     axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/active_sessions/${req.query.id}`, 
