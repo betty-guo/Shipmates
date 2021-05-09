@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:tohacks2021/db/get_user.dart';
+import 'package:tohacks2021/db/post_user.dart';
 import 'package:tohacks2021/models/user_model.dart';
 import 'destination.dart';
 
@@ -11,14 +11,7 @@ class HostPageView extends StatefulWidget {
   final Future<User> user;
 
   @override
-  _HostPageViewState createState() {
-    user.then((data) {
-      print("Inside state hostpage" + data.name);
-    }, onError: (e) {
-      print(e);
-    });
-    return _HostPageViewState(user: user);
-  }
+  _HostPageViewState createState() => _HostPageViewState(user: user);
 }
 
 class _HostPageViewState extends State<HostPageView> {
@@ -45,7 +38,7 @@ class _HostPageViewState extends State<HostPageView> {
               FormBuilder(
                   key: _formKey,
                   child: Padding(
-                    padding: const EdgeInsets.all(25.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -54,45 +47,54 @@ class _HostPageViewState extends State<HostPageView> {
                             decoration:
                                 _formInputDecorationFactory.create("Full Name"),
                           ),
+                          new SizedBox(height: 5),
                           FormBuilderTextField(
                             name: 'email',
                             decoration:
                                 _formInputDecorationFactory.create("Email"),
                           ),
+                          new SizedBox(height: 5),
                           FormBuilderTextField(
                             name: 'phone',
                             decoration:
                                 _formInputDecorationFactory.create("Phone"),
                           ),
+                          new SizedBox(height: 5),
                           FormBuilderTextField(
                             name: 'address',
                             decoration:
                                 _formInputDecorationFactory.create("Address"),
                           ),
+                          new SizedBox(height: 5),
                           FormBuilderTextField(
                             name: 'website',
                             decoration:
                                 _formInputDecorationFactory.create("Website"),
                           ),
-                          FormBuilderDateTimePicker(
+                          new SizedBox(height: 5),
+                          FormBuilderTextField(
                             name: 'deadline',
                             decoration:
                                 _formInputDecorationFactory.create("Deadline"),
                           ),
+                          new SizedBox(height: 5),
                           FormBuilderTextField(
                             name: 'current_shipping_price',
                             decoration: _formInputDecorationFactory
                                 .create("Current Shipping Price"),
                           ),
+                          new SizedBox(height: 5),
                           FormBuilderTextField(
                             name: 'current_cart_price',
                             decoration: _formInputDecorationFactory
                                 .create("Current Cart Price"),
                           ),
+                          new SizedBox(height: 5),
                           FormBuilderTextField(
                               name: 'max_people',
                               decoration: _formInputDecorationFactory
                                   .create("Max People (Optional)")),
+                          new SizedBox(height: 20),
                           Container(
                             height: 50,
                             width: 250,
@@ -101,16 +103,19 @@ class _HostPageViewState extends State<HostPageView> {
                                 borderRadius: BorderRadius.circular(20)),
                             child: TextButton(
                                 onPressed: () {
-                                  final nameData = _formKey
-                                      .currentState.fields['name'].value;
+                                  final url = _formKey
+                                      .currentState.fields['website'].value;
+                                  final deadline = _formKey
+                                      .currentState.fields['deadline'].value;
+                                  final currentShippingPrice = _formKey
+                                      .currentState
+                                      .fields['current_shipping_price']
+                                      .value;
+                                  postSession(
+                                      url, deadline, currentShippingPrice);
 
                                   FocusScope.of(context).unfocus();
-
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          duration: Duration(seconds: 1),
-                                          content: Text('$nameData',
-                                              textScaleFactor: 1.5)));
+                                  _formKey.currentState.reset();
                                 },
                                 child: Text(
                                   'Submit',
@@ -120,7 +125,6 @@ class _HostPageViewState extends State<HostPageView> {
                           ),
                         ]),
                   ),
-                  onChanged: () => print("Form has been changed"),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   initialValue: {
                     'name': snapshot.data.name,

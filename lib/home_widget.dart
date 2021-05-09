@@ -12,14 +12,7 @@ class Home extends StatefulWidget {
   final Future<User> user;
 
   @override
-  State<StatefulWidget> createState() {
-    user.then((data) {
-      print("Inside state" + data.name);
-    }, onError: (e) {
-      print(e);
-    });
-    return _HomeState(user: user);
-  }
+  State<StatefulWidget> createState() => _HomeState(user: user);
 }
 
 class _HomeState extends State<Home> {
@@ -38,12 +31,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    user.then((data) {
-      print("Inside home build" + data.name);
-    }, onError: (e) {
-      print(e);
-    });
-
     return Scaffold(
       body: SafeArea(
         top: false,

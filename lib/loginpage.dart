@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/db/get_active_sessions.dart';
 import 'package:tohacks2021/db/get_user.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:tohacks2021/models/user_model.dart';
@@ -79,14 +80,30 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(20)),
                       child: TextButton(
                         onPressed: () {
+                          getAllSessions();
                           Future<User> user;
                           if (_formKey.currentState.fields['email'].value ==
                               "shihan@gmail.com") {
                             user = getUserById(
-                                'be8b0720-922f-40f5-9d5a-0b96c3268f9e');
+                                'ae76c66a-dd61-4246-a4cb-a008cfa412cb');
+                          } else if (_formKey
+                                  .currentState.fields['email'].value ==
+                              "rahma@gmail.com") {
+                            user = getUserById(
+                                '0655855e-8be7-4478-bac2-80932b4deec2');
+                          } else if (_formKey
+                                  .currentState.fields['email'].value ==
+                              "betty@gmail.com") {
+                            user = getUserById(
+                                '99c7d280-56be-4d97-ba3c-23ff0e6f7e1b');
+                          } else if (_formKey
+                                  .currentState.fields['email'].value ==
+                              "eric@gmail.com") {
+                            user = getUserById(
+                                '1a018dcf-fdfc-4c75-b3fe-42c1b0656f73');
                           } else {
                             user = getUserById(
-                                'f4533afc-527a-4904-865b-ca0dc3d0883a');
+                                '0655855e-8be7-4478-bac2-80932b4deec2');
                           }
                           Navigator.push(
                               context,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'components/hostingSessionCard.dart';
+import 'components/joinedSessionCard.dart';
 import 'components/sessionCard.dart';
 import 'destination.dart';
 
@@ -29,56 +31,10 @@ class _HomePageViewState extends State<HomePageView> {
           title: Text('Home'),
         ),
         body: ListView(
-          children: <Widget> [
-            Container (
+          children: <Widget>[
+            Container(
               margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
-              child: Text(
-                  'Ships you are hosting',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                 fontSize: 20,
-              )),
-            ),
-            Container(
-              width: 500,
-              height: 234,
-              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-              child: SessionCard(),
-            ),
-            Container(
-                width: 500,
-                height: 234,
-                child: SessionCard(),
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-            ),
-            Container(
-              width: 500,
-              height: 234,
-              child: SessionCard(),
-              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-            ),
-            Container(
-              width: 500,
-              height: 234,
-              child: SessionCard(),
-              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-            ),
-            Container(
-              width: 500,
-              height: 234,
-              child: SessionCard(),
-              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-            ),
-            Container(
-              width: 500,
-              height: 234,
-              child: SessionCard(),
-              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-            ),
-            Container (
-              margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
-              child: Text(
-                  'Ships you are joining',
+              child: Text('Ships you are hosting',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: 20,
@@ -86,19 +42,62 @@ class _HomePageViewState extends State<HomePageView> {
             ),
             Container(
               width: 500,
-              height: 234,
-              child: SessionCard(),
+              height: 162,
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: HostingSessionCard(),
+            ),
+            Container(
+              width: 500,
+              height: 162,
+              child: HostingSessionCard(),
               margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
             Container(
               width: 500,
-              height: 234,
-              child: SessionCard(),
+              height: 162,
+              child: HostingSessionCard(),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+            ),
+            Container(
+              width: 500,
+              height: 162,
+              child: HostingSessionCard(),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+            ),
+            Container(
+              width: 500,
+              height: 162,
+              child: HostingSessionCard(),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+            ),
+            Container(
+              width: 500,
+              height: 162,
+              child: HostingSessionCard(),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
+              child: Text('Ships you are joining',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 20,
+                  )),
+            ),
+            Container(
+              width: 500,
+              height: 162,
+              child: JoinedSessionCard(),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+            ),
+            Container(
+              width: 500,
+              height: 162,
+              child: JoinedSessionCard(),
               margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
           ],
-        )
-    );
+        ));
   }
 
   @override
