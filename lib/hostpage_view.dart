@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import './db/get_user.dart';
+import 'package:tohacks2021/db/get_user.dart';
+import 'package:tohacks2021/models/user_model.dart';
 import 'destination.dart';
 
 class HostPageView extends StatefulWidget {
@@ -85,7 +86,15 @@ class _HostPageViewState extends State<HostPageView> {
                           onPressed: () {
                             final nameData =
                                 _formKey.currentState.fields['name'].value;
-                            getUserById('f4533afc-527a-4904-865b-ca0dc3d0883a');
+                            Future<User> user = getUserById(
+                                'f4533afc-527a-4904-865b-ca0dc3d0883a');
+
+                            user.then((data) {
+                              print(data.name);
+                              print(data.rating);
+                            }, onError: (e) {
+                              print(e);
+                            });
 
                             FocusScope.of(context).unfocus();
 
