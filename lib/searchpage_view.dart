@@ -63,6 +63,7 @@ class _SearchPageViewState extends State<SearchPageView> {
               ),
               Container(
                 child: ListView.builder(
+                  physics: ScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: newSessionList.length,
                   itemBuilder: (context, index) {
@@ -80,10 +81,8 @@ class _SearchPageViewState extends State<SearchPageView> {
           } else {
             children = <Widget>[Container()];
           }
-          return Center(
-            child: ListView(
-              children: children,
-            ),
+          return ListView(
+            children: children,
           );
         },
       ),
