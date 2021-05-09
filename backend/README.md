@@ -10,6 +10,8 @@ ASTRA_DB_ID=<database_id>
 ASTRA_DB_REGION=<database_region>
 ASTRA_DB_KEYSPACE=<keyspace_name>
 ASTRA_DB_APPLICATION_TOKEN=<app_token>
+COURIER_AUTHORIZE_TOKEN=
+COURIER_EVENT_ID=
 ```
 Ask for values in the `.env`.
 
