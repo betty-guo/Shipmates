@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/db/get_active_sessions.dart';
+import 'package:tohacks2021/models/active_sessions_model.dart';
 import 'components/sessionCard.dart';
 import 'destination.dart';
 
@@ -12,14 +14,12 @@ class SearchPageView extends StatefulWidget {
 }
 
 class _SearchPageViewState extends State<SearchPageView> {
-  TextEditingController _textController;
+  Future<List<ActiveSessions>> sessionList;
 
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController(
-      text: 'sample text',
-    );
+    sessionList = getAllSessions();
   }
 
   @override
@@ -28,57 +28,75 @@ class _SearchPageViewState extends State<SearchPageView> {
       appBar: AppBar(
         title: Text('Search sessions'),
       ),
-      body: ListView (
-        children: <Widget> [
-          Container (
-            margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
-            child: Text(
-                'Looking for something in particular?',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  fontSize: 20,
-                )),
-          ),
-          Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-            alignment: Alignment.center,
-            child: TextField(
-              decoration: InputDecoration(
-                  labelText: 'Search for something!',
-              ),
+      body: FutureBuilder<List<ActiveSessions>> (
+        future: sessionList,
+        builder: (BuildContext context, AsyncSnapshot<List<ActiveSessions>> snapshot) {
+        List<Widget> children;
+        if (snapshot.hasData) {
+    children = <Widget>[ListView (
+    children: <Widget> [
+    Container (
+    margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
+    child: Text(
+    'Looking for something in particular?',
+    textAlign: TextAlign.start,
+    style: TextStyle(
+    fontSize: 20,
+    )),
+    ),
+    Container(
+    padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+    alignment: Alignment.center,
+    child: TextField(
+    decoration: InputDecoration(
+    labelText: 'Search for something!',
+    ),
 
-            ),
+    ),
+    ),
+    Container (
+    margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
+    child: Text(
+    'Ships near you',
+    textAlign: TextAlign.start,
+    style: TextStyle(
+    fontSize: 20,
+    )),
+    ),
+    Container(
+    width: 500,
+    height: 234,
+    child: SessionCard(),
+    margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+    ),
+    Container(
+    width: 500,
+    height: 234,
+    child: SessionCard(),
+    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+    ),
+    ]
+    )];
+
+    }
+        else {
+          children = <Widget>[Container()];
+        }
+        return Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: children,
           ),
-          Container (
-            margin: EdgeInsets.fromLTRB(20, 15, 0, 10),
-            child: Text(
-                'Ships near you',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  fontSize: 20,
-                )),
-          ),
-          Container(
-            width: 500,
-            height: 234,
-            child: SessionCard(),
-            margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-          ),
-          Container(
-            width: 500,
-            height: 234,
-            child: SessionCard(),
-            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-          ),
-        ]
-      )
+        );
+        },),
+
     );
   }
 
   @override
   void dispose() {
-    _textController.dispose();
     super.dispose();
   }
 }
