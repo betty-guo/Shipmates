@@ -46,7 +46,7 @@ class _SessionCardState extends State<SessionCard> {
                   ListTile(
                     leading: Icon(Icons.attach_money),
                     title: Text('Contributed Money'),
-                    subtitle: Text(activeSession.current_cart_price),
+                    subtitle: Text('\$' + activeSession.current_cart_price),
                   ),
                   Positioned(
                     top: 10,
