@@ -26,6 +26,7 @@ class _HostPageViewState extends State<HostPageView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Host a new session'),
+        backgroundColor: Color(0xFFADE28A),
       ),
       body: Container(
         padding: const EdgeInsets.all(32.0),
