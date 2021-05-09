@@ -11,3 +11,10 @@ Map<String, String> idToEmail = {
   '1a018dcf-fdfc-4c75-b3fe-42c1b0656f73': 'eric@gmail.com',
   '99c7d280-56be-4d97-ba3c-23ff0e6f7e1b': 'betty@gmail.com'
 };
+
+Map<String, String> idToName = {
+  'ae76c66a-dd61-4246-a4cb-a008cfa412cb': 'Shi Han',
+  '0655855e-8be7-4478-bac2-80932b4deec2': 'Rahma',
+  '1a018dcf-fdfc-4c75-b3fe-42c1b0656f73': 'Eric',
+  '99c7d280-56be-4d97-ba3c-23ff0e6f7e1b': 'Betty'
+};
