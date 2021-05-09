@@ -151,6 +151,56 @@ routes.route('/all-active-sessions')
         });
 });
 
+// GET active sessions by host
+routes.route('/active-sessions-by-host')
+.get((req,res) => {
+    axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/active_sessions/rows`, 
+    {
+        headers: {
+            "X-Cassandra-Token": process.env.ASTRA_DB_APPLICATION_TOKEN,
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            var arr = response.data.data;
+            var newArr = [];
+            for (var i in arr){
+                if (arr[i].host == req.query.host_id) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return res.send(newArr);
+        })
+        .catch((err) => {
+            return res.send(err);
+        });
+});
+
+// GET active sessions by you are involved but not host
+routes.route('/active-sessions-by-contrib')
+.get((req,res) => {
+    axios.get(`https://${process.env.ASTRA_DB_ID}-${process.env.ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v2/keyspaces/dev/active_sessions/rows`, 
+    {
+        headers: {
+            "X-Cassandra-Token": process.env.ASTRA_DB_APPLICATION_TOKEN,
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            var arr = response.data.data;
+            var newArr = [];
+            for (var i in arr){
+                if (arr[i].users.includes(req.query.user_id) && arr[i].host != req.query.user_id) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return res.send(newArr);
+        })
+        .catch((err) => {
+            return res.send(err);
+        });
+});
+
 // POST send SMS notification to given phone number through Courier
 routes.route('/send-notification')
 .post((req, res) => {
