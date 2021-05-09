@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import '../models/active_sessions_model.dart';
 import '../destination.dart';
 
 class SessionCard extends StatefulWidget {
+
+  final ActiveSessions activeSession;
+  SessionCard({ this.activeSession });
+
   @override
-  _SessionCardState createState() => _SessionCardState();
+  _SessionCardState createState() => _SessionCardState(
+    activeSession: activeSession
+  );
 }
 
 class _SessionCardState extends State<SessionCard> {
+
+  final ActiveSessions activeSession;
+  _SessionCardState({ this.activeSession });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,22 +33,22 @@ class _SessionCardState extends State<SessionCard> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const ListTile(
+                ListTile(
                   leading: Icon(Icons.shopping_cart),
                   title: Text('Shop'),
-                  subtitle: Text('www.amazon.com'),
+                  subtitle: Text(activeSession.url),
                 ),
-                const ListTile(
+                ListTile(
                   leading: Icon(Icons.person),
-                  title: Text('PostShare Leader'),
-                  subtitle: Text('Eric Chen'),
+                  title: Text('Shipmates Leader'),
+                  subtitle: Text(activeSession.host),
                   trailing: Icon(Icons.arrow_forward_ios, size: 50),
                 ),
                 Stack(children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.attach_money),
                     title: Text('Contributed Money'),
-                    subtitle: Text('\$' + '257.50'),
+                    subtitle: Text("activeSession.current_cart_price"),
                   ),
                   Positioned(
                     top: 10,

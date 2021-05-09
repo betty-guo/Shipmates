@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tohacks2021/db/get_active_sessions.dart';
 import 'package:tohacks2021/models/active_sessions_model.dart';
-import 'components/sessionCard.dart';
+import 'components/newSessionsCard.dart';
 import 'destination.dart';
 
 class SearchPageView extends StatefulWidget {
@@ -71,7 +71,7 @@ class _SearchPageViewState extends State<SearchPageView> {
                     return Container(
                       width: 500,
                       height: 234,
-                      child: SessionCard(),
+                      child: SessionCard(activeSession: newSessionList[index]),
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
                     );
                   },

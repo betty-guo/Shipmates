@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/hostingSessionCard.dart';
 import 'components/joinedSessionCard.dart';
-import 'components/sessionCard.dart';
+import 'components/newSessionsCard.dart';
 import 'destination.dart';
 
 class HomePageView extends StatefulWidget {
