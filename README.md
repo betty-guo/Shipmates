@@ -1,4 +1,4 @@
-# tohacks2021
+# TOHacks2021
 
 A new Flutter project.
 
