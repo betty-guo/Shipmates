@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:tohacks2021/models/active_sessions_model.dart';
 import '../destination.dart';
 
 class HostingSessionCard extends StatefulWidget {
+  final ActiveSessions activeSession;
+  HostingSessionCard({this.activeSession});
+
   @override
-  _HostingSessionCardState createState() => _HostingSessionCardState();
+  _HostingSessionCardState createState() =>
+      _HostingSessionCardState(activeSession: activeSession);
 }
 
 class _HostingSessionCardState extends State<HostingSessionCard> {
+  final ActiveSessions activeSession;
+  _HostingSessionCardState({this.activeSession});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +30,10 @@ class _HostingSessionCardState extends State<HostingSessionCard> {
                   content: SingleChildScrollView(
                     child: ListBody(
                       children: <Widget>[
-                        Text('Current Shipping Price:'),
-                        Text('Store:'),
-                        Text('Items:'),
-                        Text('Status:'),
+                        Text('Current Shipping Price:' +
+                            activeSession.current_shipping_price),
+                        Text('Store: ' + activeSession.url),
+                        Text('Status: ' + activeSession.state),
                       ],
                     ),
                   ),
