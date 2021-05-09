@@ -33,7 +33,7 @@ class _HomePageViewState extends State<HomePageView> {
             Container (
               margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
               child: Text(
-                  'Active Sessions',
+                  'Ships you are hosting',
               textAlign: TextAlign.start,
               style: TextStyle(
                  fontSize: 20,
@@ -42,49 +42,43 @@ class _HomePageViewState extends State<HomePageView> {
             Container(
               width: 500,
               height: 234,
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-              child: SessionCard()
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: SessionCard(),
             ),
             Container(
                 width: 500,
                 height: 234,
                 child: SessionCard(),
-                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
             Container(
               width: 500,
               height: 234,
               child: SessionCard(),
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
             Container(
               width: 500,
               height: 234,
               child: SessionCard(),
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
             Container(
               width: 500,
               height: 234,
               child: SessionCard(),
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
             Container(
               width: 500,
               height: 234,
               child: SessionCard(),
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
             Container (
               margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
               child: Text(
-                  'Sessions Near You',
+                  'Ships you are joining',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: 20,
@@ -94,15 +88,13 @@ class _HomePageViewState extends State<HomePageView> {
               width: 500,
               height: 234,
               child: SessionCard(),
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
             Container(
               width: 500,
               height: 234,
               child: SessionCard(),
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
             ),
           ],
         )
